@@ -610,12 +610,18 @@
       </a>
     </div>
 
+    <div class="views">
+      <span id="viewCount"></span> 
+    </div>
+  </div>
+</div>
+
 
 <div class="music-panel" id="musicPanel">
   <h3>NOW PLAYING</h3>
-  <audio id="audioPlayer" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-summer.mp3" type="audio/mpeg">
-  </audio>
+<audio id="audioPlayer" loop>
+  <source src="https://youtu.be/onR54ir9AJo?si=hS62MIXp6Sv_on9c" type="audio/mpeg">
+</audio>
   <div class="music-controls">
     <button id="playPauseBtn">▶ Play</button>
     <button id="closeBtn">✕</button>
@@ -632,45 +638,20 @@
     flake.textContent = '❅';
     flake.style.left = Math.random() * 100 + 'vw';
     flake.style.fontSize = (Math.random() * 10 + 8) + 'px';
-    flake.style.animationDuration = (Math.random() * 6 + 6) + 's';
-    flake.style.animationDelay = (Math.random() * 6) + 's';
+    flake.style.animationDuration = (Math.random() * 10 + 10) + 's';
+    flake.style.animationDelay = (Math.random() * 10) + 's';
     snowContainer.appendChild(flake);
   }
 
   // Click to enter -> reveal card + start music
   const enterOverlay = document.getElementById('enterOverlay');
   const mainCard = document.getElementById('mainCard');
-  const audioPlayer = document.getElementById('audioPlayer');
-  const playPauseBtn = document.getElementById('playPauseBtn');
 
   enterOverlay.addEventListener('click', () => {
     enterOverlay.classList.add('hidden');
     mainCard.classList.add('show');
     audioPlayer.play().then(() => {
-      playPauseBtn.textContent = '⏸ Pause';
     }).catch(() => {});
-  });
-
-  // Music panel open/close
-  const musicToggle = document.getElementById('musicToggle');
-  const musicPanel = document.getElementById('musicPanel');
-  const closeBtn = document.getElementById('closeBtn');
-
-  musicToggle.addEventListener('click', () => {
-    musicPanel.classList.toggle('open');
-  });
-  closeBtn.addEventListener('click', () => {
-    musicPanel.classList.remove('open');
-  });
-
-  playPauseBtn.addEventListener('click', () => {
-    if (audioPlayer.paused) {
-      audioPlayer.play();
-      playPauseBtn.textContent = '⏸ Pause';
-    } else {
-      audioPlayer.pause();
-      playPauseBtn.textContent = '▶ Play';
-    }
   });
 
 </script>
